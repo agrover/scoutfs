@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make
+    - name: test
+      run: cd tests; sudo ./run-tests.sh -M /dev/sdb -D /dev/sdc -f /dev/sde -e /dev/sdd -r ./results -n 1 -s -q 1 -i -m
+    - name: cleanup-root-owned-stuff
+      run: "sudo chown -R agrover: /home/agrover/actions-runner/_work/"
