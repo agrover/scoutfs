@@ -534,4 +534,5 @@ fi
 if [ "$failed" != 0 ]; then
 	msg "$failed tests failed, check fail.log"
 fi
-exit 1
+
+exit $failed
