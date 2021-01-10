@@ -16,6 +16,6 @@ jobs:
     - name: make
       run: make
     - name: test
-      run: cd tests; sudo ./run-tests.sh -M /dev/sdb -D /dev/sdc -f /dev/sde -e /dev/sdd -r ./results -n 1 -s -q 1 -i -m
+      run: cd tests; sudo ./run-tests.sh -M /dev/sdb -D /dev/sdc -f /dev/sde -e /dev/sdd -r ./results -n 1 -s -q 1 -i -m -E xfstests
     - name: cleanup-root-owned-stuff
       run: "sudo chown -R agrover: /home/agrover/actions-runner/_work/"
